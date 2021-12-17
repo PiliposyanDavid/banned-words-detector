@@ -4,10 +4,9 @@
   "description": "Filter banned words from string",
   "main": "main.ts",
   "scripts": {
-    "build": "rm -rf ./dist && tsc",
-    "start": "node ./dist/main",
-    "serve": "npm build && npm start",
-    "test": "rm -rf ./dist && tsc && nyc ./node_modules/.bin/_mocha './dist/tests/**.tests.js'"
+    "build": "rm -rf ./lib && tsc",
+    "start": "node ./lib/main",
+    "serve": "npm build && npm start"
   },
   "repository": {
     "type": "git",
