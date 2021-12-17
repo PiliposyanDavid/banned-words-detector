@@ -25,8 +25,11 @@ class Normalizer {
         word = this.removeAccents(word);
         word = this.removeConsecutiveDuplicateChars(word);
 
-        return word.replace(/,. ?/g, "").toLowerCase();
+        return word
+            .replace(/[^a-zA-Z]/g, "")
+            .trim()
+            .toLowerCase();
     }
 }
 
-export default new Normalizer()
+export default Normalizer

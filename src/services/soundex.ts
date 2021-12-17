@@ -1,6 +1,6 @@
 class Soundex {
     getCode(word: string): string {
-        if(!word) return "000";
+        if (!word) return "000";
         let a = word.toLowerCase().split('');
         let f = a.shift()
         let r = '';
@@ -49,4 +49,4 @@ class Soundex {
     }
 }
 
-export default new Soundex()
+export default Soundex

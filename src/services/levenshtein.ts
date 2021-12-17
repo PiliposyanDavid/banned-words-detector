@@ -1,4 +1,4 @@
-class Levenshtain {
+class Levenshtein {
     distance(a: string, b: string): number {
         const matrix = Array.from({length: a.length})
             .map(() => Array.from({length: b.length})
@@ -20,4 +20,4 @@ class Levenshtain {
     }
 }
 
-export default new Levenshtain()
+export default  Levenshtein
