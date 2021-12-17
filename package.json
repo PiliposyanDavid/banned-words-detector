@@ -1,5 +1,5 @@
 {
-  "name": "banned-words-service",
+  "name": "banned-words-detector",
   "version": "1.0.0",
   "description": "Detect and assert if string contains banned word",
   "main": "lib/main.js",
@@ -7,8 +7,11 @@
   "scripts": {
     "build": "rm -rf ./lib && tsc",
     "start": "node ./lib/main",
-    "serve": "npm build && npm start"
+    "serve": "npm run build && npm start"
   },
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PiliposyanDavid/banned-words-service.git"
@@ -23,6 +26,9 @@
   ],
   "author": "PiliposyanDavid",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "bugs": {
     "url": "https://github.com/PiliposyanDavid/banned-words-service/issues"
   },

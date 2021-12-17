@@ -4,7 +4,7 @@
   "description": "Test cases for banned word service",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
-    "test": "npm build && nyc ./node_modules/.bin/_mocha './dist/tests/test-cases/**.tests.js'"
+    "test": "npm run build && nyc ./node_modules/.bin/_mocha './dist/tests/test-cases/**.tests.js'"
   },
   "repository": {
     "type": "git",
