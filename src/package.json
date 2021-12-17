@@ -1,8 +1,9 @@
 {
   "name": "banned-words-service",
-  "version": "0.0.1",
-  "description": "Filter banned words from string",
-  "main": "main.ts",
+  "version": "1.0.0",
+  "description": "Detect and assert if string contains banned word",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
   "scripts": {
     "build": "rm -rf ./lib && tsc",
     "start": "node ./lib/main",
@@ -15,7 +16,10 @@
   "keywords": [
     "banned-words",
     "string",
-    "filter"
+    "filter",
+    "word-detector",
+    "spam-words",
+    "bad words"
   ],
   "author": "PiliposyanDavid",
   "license": "ISC",
