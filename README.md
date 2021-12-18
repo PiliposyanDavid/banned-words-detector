@@ -18,6 +18,9 @@ The detector takes these steps
 - Convert word to code using soundex algorithm and check if exists its code on banned words map
 - If code exists, get original word by code, and check distance between two words using Levenshtein algorithm
 - If distance between original and inputted word are 0 or 1, assert for banned
+  
+
+If the result to all the above mentioned points is false, then convert diacritics from string to latin characters, remove from string all characters except letters and check is banned words includes on a string 
 
 ## Usage
 You can use detector with default banned words list, calling constructor with `{ addDefaultWords: true }` default value is `false`. 
