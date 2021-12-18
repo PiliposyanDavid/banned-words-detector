@@ -47,6 +47,14 @@ describe('Normalizer Tests', () => {
             expect(normalizer.removeConsecutiveDuplicateChars(str)).to.be.equal(str)
         });
     });
+
+    describe('#sanitizeAndJoinText', function () {
+
+        it('should sanitize', function () {
+            const str = "t  t,; ee e s sst t";
+            expect(normalizer.sanitizeAndJoinText(str)).to.be.equal("test")
+        });
+    });
 });
 
 

@@ -12,7 +12,7 @@ describe('Main Tests', () => {
     before(() => {
         main = new Main({addDefaultWords: false})
     })
-    describe('#isBanned', function () {
+    describe('#isWordBanned', function () {
 
         beforeEach(() => {
             main.clearData()

@@ -17,8 +17,9 @@ class Main {
         if (!string) return false;
 
         return string
-            .split(" ")
-            .some(word => this.isBanned(word));
+                .split(" ")
+                .some(word => this.isWordBanned(word))
+            || this.isStringContainsBannedWord(string);
     }
 
     getBannedWordsFromString(string: string): string[] {
@@ -28,11 +29,14 @@ class Main {
         string
             .split(" ")
             .forEach(word => {
-                if (this.isBanned(word)) {
+                if (this.isWordBanned(word)) {
                     detectedWords.push(word)
                 }
             });
-        return detectedWords;
+
+        const detectedWordsFromJoinedString: string[] = this.getBannedWordsFromJoinedString(string);
+
+        return detectedWords.concat(detectedWordsFromJoinedString.filter(bWord => !detectedWords.includes(bWord)));
     }
 
     getWordFromCode(word: string): string {
@@ -55,23 +59,6 @@ class Main {
         return this.bannedWords.getWords();
     }
 
-    isBanned(word: string): boolean {
-        if (!word) return false;
-        word = this.normalizer.sanitize(word);
-
-        if (this.bannedWords.isExistsInNormalWordsList(word)) return false;
-
-        const wordFromCode = this.bannedWords.getWordIfExist(word);
-        if (!wordFromCode) return false;
-
-        const distance = this.levenshtein.distance(wordFromCode, word);
-        return (distance <= 1 &&
-            (wordFromCode.length === word.length
-                || Math.abs(wordFromCode.length - word.length) <= 1
-            )
-        );
-    }
-
     printBannedWordsWithCodes(): void {
         this.bannedWords.printBannedWordsWithCodes();
     }
@@ -90,6 +77,45 @@ class Main {
 
     printNormalWordsList(): void {
         this.bannedWords.printNormalWordsList();
+    }
+
+    private isWordBanned(word: string): boolean {
+        if (!word) return false;
+        word = this.normalizer.sanitize(word);
+
+        if (this.bannedWords.isExistsInNormalWordsList(word)) return false;
+
+        const wordFromCode = this.bannedWords.getWordIfExist(word);
+        if (!wordFromCode) return false;
+
+        const distance = this.levenshtein.distance(wordFromCode, word);
+        return (distance <= 1 &&
+            (wordFromCode.length === word.length
+                || Math.abs(wordFromCode.length - word.length) <= 1
+            )
+        );
+    }
+
+    private isStringContainsBannedWord(text: string): boolean {
+        if (!text) return false;
+        text = this.normalizer.sanitizeAndJoinText(text);
+        const bannedWords: string[] = this.bannedWords.getWords();
+
+        return bannedWords.some(bWord => text.includes(bWord));
+    }
+
+    private getBannedWordsFromJoinedString(text: string): string[] {
+        if (!text) return [];
+        text = this.normalizer.sanitizeAndJoinText(text);
+        const bannedWords: string[] = this.bannedWords.getWords();
+
+        const containedBannedWords: string[] = []
+
+        bannedWords.forEach(bWord => {
+            if (text.includes(bWord)) containedBannedWords.push(bWord);
+        });
+
+        return containedBannedWords;
     }
 }
 

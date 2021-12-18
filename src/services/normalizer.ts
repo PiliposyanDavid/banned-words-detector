@@ -30,6 +30,13 @@ class Normalizer {
             .trim()
             .toLowerCase();
     }
+
+    sanitizeAndJoinText(text: string): string {
+        text = this.removeAccents(text);
+        text = text.replace(/[^a-zA-Z]/g, "").trim().toLowerCase()
+        return this.removeConsecutiveDuplicateChars(text);
+    }
+
 }
 
 export default Normalizer
