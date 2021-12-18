@@ -1,6 +1,6 @@
 {
   "name": "banned-words-detector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect and assert if string contains banned word",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PiliposyanDavid/banned-words-service.git"
+    "url": "git+https://github.com/PiliposyanDavid/banned-words-detector.git"
   },
   "keywords": [
     "banned-words",
@@ -30,9 +30,9 @@
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/PiliposyanDavid/banned-words-service/issues"
+    "url": "https://github.com/PiliposyanDavid/banned-words-detector/issues"
   },
-  "homepage": "https://github.com/PiliposyanDavid/banned-words-service#readme",
+  "homepage": "https://github.com/PiliposyanDavid/banned-words-detector#readme",
   "devDependencies": {
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
