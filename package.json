@@ -1,6 +1,6 @@
 {
   "name": "banned-words-detector",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Detect and assert if string contains banned word",
   "main": "lib/main.js",
   "types": "lib/main.d.ts",
