@@ -72,7 +72,7 @@ bannedWordsService.isContainsBanned("example fruit a=🅿=🅿=𝐥=𝕖"); → 
 ## Test results
 
 
-During the test, at first added 2700+ words to banned list, then did the test on a string which contained 5000+ words. Detected 1700+ banned words in string, and 298 of them were not equal to originals. Here is the result
+During the test, at first added 2700+ words to banned list, then did the test on a string which contained 5000+ words. Detected 1700+ banned words in string. Here is the result
 ```
 farmer,  →  former
 the  →  they
